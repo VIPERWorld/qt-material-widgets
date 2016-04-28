@@ -132,6 +132,7 @@ void IconMenu::updateOverlayGeometry()
     const QSize size = _menu->layout()->sizeHint();
     if (QAbstractAnimation::Running == _animation->state()) {
         const QSize menuSize = size*(_progress*0.4 + 0.6);
+        _menu->setBackgroundOpacity(_progress);
         _menu->setGeometry(QRect(pos, menuSize));
         _menu->layout()->setGeometry(QRect(0, 0, menuSize.width(), size.height()*_progress));
     } else {

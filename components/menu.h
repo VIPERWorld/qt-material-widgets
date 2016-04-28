@@ -24,6 +24,9 @@ public:
     explicit Menu(QWidget *parent = 0);
     ~Menu();
 
+    inline void setBackgroundOpacity(qreal opacity) { _bkgOpacity = opacity; update(); }
+    inline qreal backgroundOpacity() const { return _bkgOpacity; }
+
     void addMenuItem(MenuItem *item);
     void addMenuItem(const QString &text);
 
@@ -34,6 +37,7 @@ protected:
 
 private:
     QList<MenuItem *> _items;
+    qreal _bkgOpacity;
 };
 
 #endif // MENU_H

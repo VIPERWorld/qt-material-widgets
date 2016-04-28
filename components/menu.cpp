@@ -24,7 +24,8 @@ QSize MenuItem::sizeHint() const
 }
 
 Menu::Menu(QWidget *parent)
-    : QWidget(parent)
+    : QWidget(parent),
+      _bkgOpacity(1)
 {
     QVBoxLayout *layout = new QVBoxLayout;
     setLayout(layout);
@@ -62,6 +63,7 @@ void Menu::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
 
+    painter.setOpacity(_bkgOpacity);
     painter.fillRect(rect(), Qt::white);
 
     QWidget::paintEvent(event);
